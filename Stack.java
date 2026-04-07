@@ -1,14 +1,9 @@
 package gra.karciana;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class Stack {
-
     private final Deque<Card> stack = new ArrayDeque<>();
-
     public void pushCard(Card card) {
         stack.push(card);
     }
@@ -19,7 +14,7 @@ public class Stack {
         }
         System.out.println(String.format("Kupka dostała %s karty. Rozmiar kupki: %s a na górze %s", cards.size(), stack.size(), stack.peek()));
         try {
-            Thread.sleep(1200);
+            Thread.sleep(200);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -45,6 +40,9 @@ public class Stack {
     public List<Card> getCardsBack(int numberOfBack) {
         List<Card> cardsToBeGetBack = new ArrayList<>();
 
+        if(stack.peek().value()==2){
+            return Collections.emptyList();
+        }
         for (int i = 0; i < numberOfBack; i++) {
             cardsToBeGetBack.add(stack.poll());
         }

@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
 public class Deck {
-
     private final List<Card> deck = new ArrayList<>(54);
-
     public Deck() {
 
         String[] suits = {"Heart", "Diamond", "Club", "Spade" };

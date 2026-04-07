@@ -2,7 +2,6 @@ package gra.karciana;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
 public class GameRules {
 
     public static List<Card> throwOneOrThreeOfTheSameRank(Card topStackCard, PriorityQueue<Card> hand) {
@@ -22,14 +21,13 @@ public class GameRules {
                     .findFirst().get());
         } else {
             return Collections.EMPTY_LIST;
-
         }
     }
 
     public static List<Card> throwOneOrThreeOrFourOfLowestValueTheSameSuit(Card stackCard, PriorityQueue<Card> hand) {
 
-        int valueOfLowestCard = 14;
-        int valueOfLowestThreeOrFourCards = 14;
+        int valueOfLowestCard = 15;
+        int valueOfLowestThreeOrFourCards = 15;
         List<Card> handOfRankEqualOrHigher = hand.stream()
                 .filter(c -> c.value() >= stackCard.value())
                 .toList();
@@ -55,5 +53,4 @@ public class GameRules {
 
         return valueOfLowestCard < valueOfLowestThreeOrFourCards ? lowestOneCard.stream().toList() : lowestThreeOrFourCards;
     }
-
 }
